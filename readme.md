@@ -43,9 +43,8 @@ Right now all it does is open a single file, no syntax highlighting, and no opti
 
 Stuff I'll probably add if I stay stuck in Perlland.
 
-1. Tabbed edit window so you can have lots of Perl files open.
-2. The ability to add parameters to your `perl` call, like `-l`.
-3. Stuff it should do.
+1. The ability to add parameters to your `perl` call, like `-l`.
+2. Stuff it should do.
     * Create and save a new file.
     * Close tabs.
     * Remember last window size.
@@ -53,10 +52,10 @@ Stuff I'll probably add if I stay stuck in Perlland.
     * Remember last active dir.
     * ... your cursor position.
     * ... your birthday.
-4. Syntax highlighting (don't hold your breath, but [this project could have potential](https://github.com/PavelTorgashov/FastColoredTextBox) if it's a drop-in replacement, though I'd have to write a Perl syntax parser for it).
-5. Line numbers.
-6. And if I really get mired in Perl, **DEBUG MODE** (more audio effects).
-7. Add vi mode. (Ha. Hahaha. HAHAHAHAHA! No, that's not going to happen. Though I wish it would.)
+3. Syntax highlighting (don't hold your breath, but [this project could have potential](https://github.com/PavelTorgashov/FastColoredTextBox) if it's a drop-in replacement, though I'd have to write a Perl syntax parser for it).
+4. Line numbers.
+5. And if I really get mired in Perl, **DEBUG MODE** (more audio effects).
+6. Add vi mode. (Ha. Hahaha. HAHAHAHAHA! No, that's not going to happen. Though I wish it would.)
 
 Adding debugging [really] isn't [as] insane [as it sounds]. Perl has its own debugger. [This from LinuxJournal](http://www.linuxjournal.com/article/2484) is supposed to be a decent intro. I think you could manage marshaling text to and from the debugger running on the command line reasonably easily (ie, straightforwardly).
 
