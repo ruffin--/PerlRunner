@@ -23,8 +23,34 @@ namespace PerlRunner
     /// </summary>
     public partial class MainWindow : Window
     {
-        string _openFile = string.Empty;
         string _wherePerl = string.Empty;
+
+        TabItem _tabActive
+        {
+            get
+            {
+                return (TabItem)this.TabOFiles.SelectedItem;
+            }
+        }
+
+        TextBox _txtActive
+        {
+            get
+            {
+                return (TextBox)_tabActive.Content;
+            }
+        }
+
+        string _activeFileLoc
+        {
+            get
+            {
+                string headerVal = ((TabItem)this.TabOFiles.SelectedItem).Header.ToString();
+                return this.dFileLocs[headerVal];
+            }
+        }
+
+        Dictionary<string, string> dFileLocs = new Dictionary<string, string>();
 
         public MainWindow()
         {
@@ -38,8 +64,11 @@ namespace PerlRunner
 
             try
             {
-                _saveCurrentBuffer();
-                this.txtOutput.Text = CmdHelper.Execute(_wherePerl, _openFile);
+                if (!_tabActive.Name.Equals("FauxTab"))
+                {
+                    _saveBuffer(_tabActive);
+                    this.txtOutput.Text = CmdHelper.Execute(_wherePerl, _activeFileLoc);
+                }
             }
             catch (Exception ex)
             {
@@ -69,13 +98,40 @@ namespace PerlRunner
                 // Process open file dialog box results 
                 if (result.HasValue && result.Value)
                 {
-                    // Open document 
-                    _openFile = dlg.FileName;
-                    this.Title = _openFile;
-                    CommandManager.InvalidateRequerySuggested();
-                    this.txtCode.IsEnabled = true;
-                    this.txtCode.Text = File.ReadAllText(_openFile);
-                    this.txtCode.Focus();
+                    // Open document
+                    // NOTE: Never mix data with view like this, okay? LOOK AWAY!!! I'M HIDEOUS!!!
+                    string openFile = dlg.FileName;
+                    string openFileName = dlg.FileName.Substring(dlg.FileName.LastIndexOf(@"\") + 1);
+
+                    if (dFileLocs.ContainsKey(openFileName))
+                    {
+                        this.txtOutput.Text = "A file named " + openFileName + " is already open. Please restart PerlRunner\n"
+                            + "(or, in a later version, close the existing tab) to open this file.\n"
+                            + "\n"
+                            + "With any luck, this won't be a limitation in the future.\n"
+                            + "\n"
+                            + "\t(It is on github, and pull requests are welcome, you know. ;^D)";
+                        MessageBox.Show("Not gonna open that right now.\n\n(see bottom window)", "Not gonna do it.");
+                    }
+                    else
+                    {
+                        this.dFileLocs.Add(openFileName, openFile);
+
+                        TextBox txt = new TextBox();
+                        txt.FontFamily = new FontFamily("Courier New");
+                        txt.AcceptsReturn = true;
+                        txt.Background = Brushes.LightBlue;
+                        txt.Text = File.ReadAllText(openFile);
+
+                        TabItem tab = new TabItem();
+                        tab.Header = openFileName;
+                        tab.Content = txt;
+                        this.TabOFiles.Items.Insert(this.TabOFiles.Items.Count, tab);
+                        this.TabOFiles.SelectedItem = tab;
+                        CommandManager.InvalidateRequerySuggested();
+
+                        txt.Focus();
+                    }
                 }
             }
             catch (Exception ex)
@@ -87,12 +143,12 @@ namespace PerlRunner
 
         private void CommandBinding_Save_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
-            e.CanExecute = !string.IsNullOrWhiteSpace(_openFile);
+            e.CanExecute = !string.IsNullOrWhiteSpace(_txtActive.Text);
         }
 
         private void CommandBinding_Save_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            _saveCurrentBuffer();
+            _saveBuffer(_tabActive);
         }
 
         private void CommandBinding_Open_CanExecute(object sender, CanExecuteRoutedEventArgs e)
@@ -126,11 +182,17 @@ namespace PerlRunner
             }
         }
 
-        private void _saveCurrentBuffer()
+        private string _fileForTab(TabItem tab)
+        {
+            return this.dFileLocs[tab.Header.ToString()];
+        }
+
+        private void _saveBuffer(TabItem tabIn)
         {
             try
             {
-                File.WriteAllText(_openFile, this.txtCode.Text);
+                TextBox txt = (TextBox)tabIn.Content;
+                File.WriteAllText(_fileForTab(tabIn), txt.Text);
             }
             catch (Exception ex)
             {

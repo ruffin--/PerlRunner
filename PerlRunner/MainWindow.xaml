@@ -15,7 +15,17 @@
             Executed="CommandBinding_Save_Executed"
             CanExecute="CommandBinding_Save_CanExecute"
         />
+
+        <CommandBinding 
+            Command="{x:Static local:ExecutionCommands.ExecutePerl}" 
+            Executed="CommandBinding_Executed" 
+            CanExecute="CommandBinding_CanExecute"
+         />
     </Window.CommandBindings>
+    <Window.InputBindings>
+        <KeyBinding Key="F5" Command="local:ExecutionCommands.ExecutePerl"/>
+    </Window.InputBindings>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="20"></RowDefinition>
@@ -48,25 +58,22 @@
             </ToolBar>
         </ToolBarTray>-->
 
-        <TextBox
+        <TabControl
             Grid.Row="1"
-            Name="txtCode" 
-            FontFamily="Courier New"
-            AcceptsReturn="True"
-            Background="LightBlue" Text="Load a file to edit." IsEnabled="False"
+            Name="TabOFiles"
         >
-            <TextBox.CommandBindings>
-                <!-- This will make this TextBox the command's sender -->
-                <CommandBinding 
-                Command="{x:Static local:ExecutionCommands.ExecutePerl}" 
-                Executed="CommandBinding_Executed" 
-                CanExecute="CommandBinding_CanExecute"
-            />
-            </TextBox.CommandBindings>
-            <TextBox.InputBindings>
-                <KeyBinding Key="F5" Command="local:ExecutionCommands.ExecutePerl"/>
-            </TextBox.InputBindings>
-        </TextBox>
+            <TabItem Name="FauxTab" Header="Open a File">
+                <TextBox 
+                    Name="txtCode" 
+                    FontFamily="Courier New"
+                    AcceptsReturn="True"
+                    Background="LightBlue" 
+                    Text="Load a file to edit." 
+                    IsEnabled="False"
+                >
+                </TextBox>
+            </TabItem>
+        </TabControl>
 
         <GridSplitter Grid.Row="2"
               HorizontalAlignment="Stretch"

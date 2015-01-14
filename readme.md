@@ -18,10 +18,10 @@ So I wanted to F5 my way through learning Perl, and took an afternoon to learn a
 
 ###Just let me F5.
 
-Check. That's really all PerlRunner does. 
+Check. That's really all PerlRunner does.
 
-1. Open a .pl file. 
-2. Hit F5. 
+1. Open a .pl file.
+2. Hit F5.
 3. See the results.
 4. Profit.
 
@@ -45,7 +45,14 @@ Stuff I'll probably add if I stay stuck in Perlland.
 
 1. Tabbed edit window so you can have lots of Perl files open.
 2. The ability to add parameters to your `perl` call, like `-l`.
-3. Stuff it should do. Create and save a new file. Remember last window size. Remember splitter bar position. Remember last active dir. Your cursor position. Your birthday.
+3. Stuff it should do.
+    * Create and save a new file.
+    * Close tabs.
+    * Remember last window size.
+    * Remember splitter bar position.
+    * Remember last active dir.
+    * ... your cursor position.
+    * ... your birthday.
 4. Syntax highlighting (don't hold your breath, but [this project could have potential](https://github.com/PavelTorgashov/FastColoredTextBox) if it's a drop-in replacement, though I'd have to write a Perl syntax parser for it).
 5. Line numbers.
 6. And if I really get mired in Perl, **DEBUG MODE** (more audio effects).
@@ -57,4 +64,4 @@ None of those things are likely. If you're lucky, I'll remove the colors on the 
 
 Enjoy.
 
-Honestly, I know there's something somewhere on Windows that'll do this. I can't believe I couldn't google it up in ten seconds or less, but could google up ten different ways to run it on *nix. It's *Perl*, for goodness sake. I've been hearing about people using this "language" for 20 years, and I'm young. Does nobody do Perl on Windows? 
+Honestly, I know there's something somewhere on Windows that'll do this. I can't believe I couldn't google it up in ten seconds or less, but could google up ten different ways to run it on \*nix. It's *Perl*, for goodness sake. I've been hearing about people using this "language" for 20 years, and I'm young. Does nobody do Perl on Windows?
