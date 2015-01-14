@@ -117,9 +117,10 @@ namespace PerlRunner
                     {
                         this.dFileLocs.Add(openFileName, openFile);
 
-                        TextBox txt = new TextBox();
+                        TextBoxTabsToSpaces txt = new TextBoxTabsToSpaces();
                         txt.FontFamily = new FontFamily("Courier New");
                         txt.AcceptsReturn = true;
+                        txt.AcceptsTab = true;
                         txt.Background = Brushes.LightBlue;
                         txt.Text = File.ReadAllText(openFile);
 
