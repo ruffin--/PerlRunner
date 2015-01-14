@@ -1,2 +1,3 @@
 PerlRunner/obj/
 PerlRunner/bin/
+*.orig
