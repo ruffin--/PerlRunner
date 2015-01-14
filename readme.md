@@ -29,17 +29,15 @@ You're welcome. ;^)
 
 ###Features
 
-It automatically finds which Perl install you have in your path and uses that. `where perl` indeed.
-
-You can open one file, and *save your changes*. Wow. I *know*.
-
-Did I mention you can hit F5 and have it execute? Sometimes. I can't tell exactly what causes `CanExecute` to fire in my `CommandBinding`s. It's a little hit and miss.
+* It automatically finds which Perl install you have in your path and uses that. `where perl` indeed.
+* You can open *many* file*s*, and *save your changes*. Wow. I *know*.
+* Did I mention you can hit F5 and have it execute?
 
 Yeah, that's about it for features right now.
 
 ###It's not an IDE. K?
 
-Right now all it does is open a single file, no syntax highlighting, and no options.
+Right now all it does is open files (that don't share the same file name), no syntax highlighting, and no options.
 
 Stuff I'll probably add if I stay stuck in Perlland.
 

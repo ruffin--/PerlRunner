@@ -180,6 +180,9 @@ namespace PerlRunner
                 _wherePerl = @"C:\Strawberry\perl\bin\perl.exe";
                 this.txtOutput.Text += "\n\n!!! Unable to find perl installation. Using:\n" + _wherePerl;
             }
+
+            this.txtOutput.Text += "\nApp icon is part of the Creative Commons and requires attribution for the author: Nicolas Mollet.\n"
+                + "Thanks Nicolas.";
         }
 
         private string _fileForTab(TabItem tab)
