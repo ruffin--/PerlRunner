@@ -1,0 +1,92 @@
+﻿<Window x:Class="PerlRunner.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:PerlRunner"
+        Title="PerlRunner 0.1 (c) 2015  !!!!USE AT YOUR OWN RISK!!!!" Height="650" Width="725" Loaded="Window_Loaded">
+    
+    <Window.CommandBindings>
+        <CommandBinding
+            Command="Open"
+            Executed="CommandBinding_Open_Executed"
+            CanExecute="CommandBinding_Open_CanExecute"
+        />
+        <CommandBinding
+            Command="Save"
+            Executed="CommandBinding_Save_Executed"
+            CanExecute="CommandBinding_Save_CanExecute"
+        />
+    </Window.CommandBindings>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="200"></RowDefinition>
+            <RowDefinition Height="20"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <DockPanel Grid.Row="0">
+        <Menu>
+            <MenuItem Header="_File">
+                    <MenuItem Command="Save"></MenuItem>
+                    <MenuItem Command="Open"></MenuItem>
+                </MenuItem>
+            <MenuItem Header="_Execute">
+                <MenuItem 
+                    Command="{x:Static local:ExecutionCommands.ExecutePerl}"
+                    InputGestureText="F5"
+                />
+            </MenuItem>
+        </Menu>
+        </DockPanel>
+        
+        <!--<ToolBarTray Grid.Row="1">
+            <ToolBar>
+                <Button Command="Save" Content="Save" VerticalAlignment="Stretch" />
+                --><!--<Button Command="FlipSplit" Content="Rearrange" />
+                <Button Command="Run" Content="RUN" />--><!--
+            </ToolBar>
+        </ToolBarTray>-->
+
+        <TextBox 
+            Name="txtCode" 
+            Grid.Row="1" 
+            FontFamily="Courier New"
+            AcceptsReturn="True"
+            Background="LightBlue">
+            <TextBox.CommandBindings>
+                <!-- This will make this TextBox the command's sender -->
+                <CommandBinding 
+                    Command="{x:Static local:ExecutionCommands.ExecutePerl}" 
+                    Executed="CommandBinding_Executed" 
+                    CanExecute="CommandBinding_CanExecute"
+                />
+            </TextBox.CommandBindings>
+            <TextBox.InputBindings>
+                <KeyBinding Key="F5" Command="local:ExecutionCommands.ExecutePerl"/>
+            </TextBox.InputBindings>
+
+        </TextBox>
+
+        <GridSplitter Grid.Row="2"
+              HorizontalAlignment="Stretch"
+              VerticalAlignment="Center"
+              Background="Black" 
+              Height="5"
+        />
+        
+        <TextBox 
+            Name="txtOutput" 
+            Grid.Row="3" 
+            FontFamily="Courier New"
+            AcceptsReturn="True"
+            Background="LightGreen" Text="USE AT YOUR OWN RISK!!!"
+        ></TextBox>
+
+        <TextBlock
+            Grid.Row="4"
+            Foreground="Red"
+            Text="USE AT YOUR OWN RISK!!!"
+        ></TextBlock>
+    </Grid>
+</Window>
