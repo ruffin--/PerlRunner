@@ -45,7 +45,7 @@ Stuff I'll probably add if I stay stuck in Perlland.
 
 1. Tabbed edit window so you can have lots of Perl files open.
 2. The ability to add parameters to your `perl` call, like `-l`.
-3. Stuff it should do. Remember last window size. Remember splitter bar position. Remember last active dir. Your cursor position. Your birthday.
+3. Stuff it should do. Create and save a new file. Remember last window size. Remember splitter bar position. Remember last active dir. Your cursor position. Your birthday.
 4. Syntax highlighting (don't hold your breath, but [this project could have potential](https://github.com/PavelTorgashov/FastColoredTextBox) if it's a drop-in replacement, though I'd have to write a Perl syntax parser for it).
 5. Line numbers.
 6. And if I really get mired in Perl, **DEBUG MODE** (more audio effects).

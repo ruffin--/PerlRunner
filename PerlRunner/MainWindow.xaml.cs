@@ -38,11 +38,12 @@ namespace PerlRunner
 
             try
             {
-                this.txtOutput.Text = CmdHelper.Execute(@"C:\strawberry\perl\bin\perl.exe", _openFile);
+                _saveCurrentBuffer();
+                this.txtOutput.Text = CmdHelper.Execute(_wherePerl, _openFile);
             }
             catch (Exception ex)
             {
-                this.txtOutput.Text = "Unable to execute Perl script.\n\n" + ex.ToString();
+                this.txtOutput.Text += "Unable to execute Perl script.\n\n" + ex.ToString();
             }
         }
 
@@ -72,6 +73,7 @@ namespace PerlRunner
                     _openFile = dlg.FileName;
                     this.Title = _openFile;
                     CommandManager.InvalidateRequerySuggested();
+                    this.txtCode.IsEnabled = true;
                     this.txtCode.Text = File.ReadAllText(_openFile);
                     this.txtCode.Focus();
                 }
@@ -90,14 +92,7 @@ namespace PerlRunner
 
         private void CommandBinding_Save_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            try
-            {
-                File.WriteAllText(_openFile, this.txtCode.Text);
-            }
-            catch (Exception ex)
-            {
-                this.txtOutput.Text = "Saving the file didn't work.\n\n" + ex.ToString();
-            }
+            _saveCurrentBuffer();
         }
 
         private void CommandBinding_Open_CanExecute(object sender, CanExecuteRoutedEventArgs e)
@@ -109,6 +104,9 @@ namespace PerlRunner
         {
             Console.WriteLine("Loaded");
             bool success = false;
+
+            this.Title = string.Format("PerlRunner {0} (c) 2015  !!!!USE AT YOUR OWN RISK!!!!", System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString());
+
             try
             {
                 _wherePerl = CmdHelper.Execute("where.exe", "perl");
@@ -124,8 +122,20 @@ namespace PerlRunner
             if (!success || string.IsNullOrWhiteSpace(_wherePerl))
             {
                 _wherePerl = @"C:\Strawberry\perl\bin\perl.exe";
+                this.txtOutput.Text += "\n\n!!! Unable to find perl installation. Using:\n" + _wherePerl;
             }
         }
 
+        private void _saveCurrentBuffer()
+        {
+            try
+            {
+                File.WriteAllText(_openFile, this.txtCode.Text);
+            }
+            catch (Exception ex)
+            {
+                this.txtOutput.Text = "Saving the file didn't work.\n\n" + ex.ToString();
+            }
+        }
     }
 }
