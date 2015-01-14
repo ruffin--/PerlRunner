@@ -28,7 +28,7 @@ namespace PerlRunner.Utils
 
         protected override void OnPreviewKeyDown(System.Windows.Input.KeyEventArgs e)
         {
-            if (e.Key == Key.Tab)
+            if (e.Key == Key.Tab && !e.KeyboardDevice.IsKeyDown(Key.LeftCtrl) && !e.KeyboardDevice.IsKeyDown(Key.RightCtrl))
             {
                 base.SelectedText = string.Empty;
                 int intCaretLoc = base.CaretIndex;

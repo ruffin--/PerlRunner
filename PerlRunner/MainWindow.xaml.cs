@@ -131,6 +131,8 @@ namespace PerlRunner
                         this.TabOFiles.SelectedItem = tab;
                         CommandManager.InvalidateRequerySuggested();
 
+                        tab.Focus();
+                        UpdateLayout();
                         txt.Focus();
                     }
                 }
