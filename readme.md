@@ -1,5 +1,7 @@
 ##PERLRUNNER!!!1!! Use at YOUR OWN RISK.
 
+![Screenshot of PERLRUNNER!!!1!!](https://raw.githubusercontent.com/ruffin--/PerlRunner/master/screenshots/runner1.png)
+
 (Imagine some neat audio effects going off while you're reading the name, above. And yes, I know there's a "Perl Runner" for Mac that'll set you back **$1.99**. But, one, the name's not copyrighted. Two, there's no space in PERLRUNNER!!!1!.)
 
 ###License
