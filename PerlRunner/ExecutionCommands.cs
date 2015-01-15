@@ -12,9 +12,17 @@ namespace PerlRunner
         static RoutedUICommand executePerl = new RoutedUICommand("GO!!!",
             "ExecutePerl", typeof(ExecutionCommands));
 
+        static RoutedUICommand closeTab = new RoutedUICommand("Close Tab",
+            "CloseTab", typeof(ExecutionCommands));
+
         public static RoutedUICommand ExecutePerl
         {
             get { return executePerl; }
+        }
+
+        public static RoutedUICommand CloseTab
+        {
+            get { return closeTab; }
         }
     }
 }

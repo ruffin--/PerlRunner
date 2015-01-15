@@ -159,6 +159,29 @@ namespace PerlRunner
             e.CanExecute = true;
         }
 
+        private void CommandBinding_CloseTab_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            try
+            {
+                if (!_tabActive.Name.Equals("FauxTab"))
+                {
+                    _saveBuffer(_tabActive);
+                    this.txtOutput.Text = "Saving before closing.";
+                    this.dFileLocs.Remove(_tabActive.Header.ToString());
+                    this.TabOFiles.Items.Remove(_tabActive);
+                }
+            }
+            catch (Exception ex)
+            {
+                this.txtOutput.Text += "Unable to close tab.\n\n" + ex.ToString();
+            }
+        }
+
+        private void CommandBinding_CloseTab_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        }
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             Console.WriteLine("Loaded");
