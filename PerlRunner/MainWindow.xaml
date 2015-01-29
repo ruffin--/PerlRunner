@@ -55,10 +55,11 @@
                         />
                 </MenuItem>
                 <MenuItem Header="_Execute">
-                    <MenuItem 
+                    <MenuItem
                         Command="{x:Static local:ExecutionCommands.ExecutePerl}"
                         InputGestureText="F5"
                     />
+                    <MenuItem Name="mniOptionL" Header="Use -l option" IsCheckable="True" IsChecked="True" />
                 </MenuItem>
             </Menu>
         </DockPanel>

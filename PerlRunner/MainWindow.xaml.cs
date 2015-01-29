@@ -67,7 +67,12 @@ namespace PerlRunner
                 if (!_tabActive.Name.Equals("FauxTab"))
                 {
                     _saveBuffer(_tabActive);
-                    this.txtOutput.Text = CmdHelper.Execute(_wherePerl, _activeFileLoc);
+                    string argsForPerl = _activeFileLoc;
+                    if (this.mniOptionL.IsChecked)
+                    {
+                        argsForPerl = "-l " + argsForPerl;
+                    }
+                    this.txtOutput.Text = CmdHelper.Execute(_wherePerl, argsForPerl);
                 }
             }
             catch (Exception ex)
@@ -105,8 +110,8 @@ namespace PerlRunner
 
                     if (dFileLocs.ContainsKey(openFileName))
                     {
-                        this.txtOutput.Text = "A file named " + openFileName + " is already open. Please restart PerlRunner\n"
-                            + "(or, in a later version, close the existing tab) to open this file.\n"
+                        this.txtOutput.Text = "A file named " + openFileName + " is already open. Please \n"
+                            + "close the existing tab by this name to open this file.\n"
                             + "\n"
                             + "With any luck, this won't be a limitation in the future.\n"
                             + "\n"
@@ -208,7 +213,9 @@ namespace PerlRunner
             }
 
             this.txtOutput.Text += "\nApp icon is part of the Creative Commons and requires attribution for the author: Nicolas Mollet.\n"
-                + "Thanks Nicolas.";
+                + "Thanks Nicolas.\n";
+
+            this.txtOutput.Text += "\nNew in 0.1.2: Can choose to use -l option, which is on by default, with the `perl` call to make `print` more readable.\n";
         }
 
         private string _fileForTab(TabItem tab)

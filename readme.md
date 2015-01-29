@@ -31,29 +31,32 @@ You're welcome. ;^)
 
 * It automatically finds which Perl install you have in your path and uses that. `where perl` indeed.
 * You can open *many* file*s*, and *save your changes*. Wow. I *know*.
+* You can run `perl` with the `-l` option on to make `print`s look better. (on by default)
+* Tabs close! Hit `ctrl-w` and be boggled.
 * Did I mention you can hit F5 and have it execute?
 
 Yeah, that's about it for features right now.
 
-###It's not an IDE. K?
+**Note:** You can set the `-l` option with the `Execute >>> Use -l option` menu. It is *on* by default, and resets to on each time PerlRunner is opened. 
+
+###It's not an IDE. kk?
 
 Right now all it does is open files (that don't share the same file name), no syntax highlighting, and no options.
 
 Stuff I'll probably add if I stay stuck in Perlland.
 
-1. The ability to add parameters to your `perl` call, like `-l`.
-2. Stuff it should do.
-    * Create and save a new file.
-    * Close tabs.
-    * Remember last window size.
-    * Remember splitter bar position.
-    * Remember last active dir.
-    * ... your cursor position.
-    * ... your birthday.
-3. Syntax highlighting (don't hold your breath, but [this project could have potential](https://github.com/PavelTorgashov/FastColoredTextBox) if it's a drop-in replacement, though I'd have to write a Perl syntax parser for it).
-4. Line numbers.
-5. And if I really get mired in Perl, **DEBUG MODE** (more audio effects).
-6. Add vi mode. (Ha. Hahaha. HAHAHAHAHA! No, that's not going to happen. Though I wish it would.)
+1. Stuff any self-respecting app *should* do.
+    * Create and save a new file (right now you *have* to edit an existing file).
+    * Remember...
+	    * ... last window size.
+    	* ... splitter bar position.
+    	* ... last active dir.
+    	* ... your cursor position.
+    	* ... your birthday.
+2. Syntax highlighting (don't hold your breath, but [this project could have potential](https://github.com/PavelTorgashov/FastColoredTextBox) if it's a drop-in replacement, though I'd have to write a Perl syntax parser for it).
+3. Line numbers.
+4. And if I really get mired in Perl, **DEBUG MODE** (more audio effects).
+5. Add vi mode. (Ha. Hahaha. HAHAHAHAHA! No, that's not going to happen. Though I wish it would.)
 
 Adding debugging [really] isn't [as] insane [as it sounds]. Perl has its own debugger. [This from LinuxJournal](http://www.linuxjournal.com/article/2484) is supposed to be a decent intro. I think you could manage marshaling text to and from the debugger running on the command line reasonably easily (ie, straightforwardly).
 
@@ -61,4 +64,6 @@ None of those things are likely. If you're lucky, I'll remove the colors on the 
 
 Enjoy.
 
-Honestly, I know there's something somewhere on Windows that'll do this. I can't believe I couldn't google it up in ten seconds or less, but could google up ten different ways to run it on \*nix. It's *Perl*, for goodness sake. I've been hearing about people using this "language" for 20 years, and I'm young. Does nobody do Perl on Windows?
+Honestly, I know there has to be something somewhere on Windows that'll do this. I can't believe I couldn't google it up in ten seconds or less, but could google up ten different ways to run Perl in a GUI on \*nix. It's *Perl*, for goodness sake. I've been hearing about people using this "language" for 20 years, and I'm still reasonably young. Does nobody do -- or even learn -- Perl on Windows?
+
+Anything doesn't work? *Open an issue!*
