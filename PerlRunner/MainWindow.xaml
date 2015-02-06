@@ -59,7 +59,8 @@
                         Command="{x:Static local:ExecutionCommands.ExecutePerl}"
                         InputGestureText="F5"
                     />
-                    <MenuItem Name="mniOptionL" Header="Use -l option" IsCheckable="True" IsChecked="True" />
+                    <MenuItem Name="mniOptionl" Header="Use -l option" IsCheckable="True" IsChecked="True" />
+                    <MenuItem Name="mniOptionW" Header="Use -W option (all Warnings)" IsCheckable="True" IsChecked="True" />
                 </MenuItem>
             </Menu>
         </DockPanel>
@@ -102,6 +103,8 @@
             FontFamily="Courier New"
             AcceptsReturn="True"
             Background="LightGreen" Text="USE AT YOUR OWN RISK!!!"
+            ScrollViewer.VerticalScrollBarVisibility="Auto"
+            ScrollViewer.HorizontalScrollBarVisibility="Auto"
         ></TextBox>
 
         <TextBlock

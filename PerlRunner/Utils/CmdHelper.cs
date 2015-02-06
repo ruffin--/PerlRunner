@@ -29,7 +29,14 @@ namespace PerlRunner.Utils
                 sbErr.Append(p.StandardError.ReadToEnd());
             }
 
-            strReturn = 0 < sbErr.Length ? sbErr.ToString() : sbOut.ToString();
+            strReturn = sbOut.ToString();
+            if (0 < sbErr.Length) strReturn += System.Environment.NewLine 
+                + System.Environment.NewLine
+                + "----------------" + System.Environment.NewLine
+                + "*** WARNINGS ***" + System.Environment.NewLine
+                + "----------------" + System.Environment.NewLine
+                + sbErr.ToString();
+
             return strReturn;
         }
     }

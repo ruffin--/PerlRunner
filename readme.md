@@ -62,8 +62,21 @@ Adding debugging [really] isn't [as] insane [as it sounds]. Perl has its own deb
 
 None of those things are likely. If you're lucky, I'll remove the colors on the text boxes I was using to test my XAML. It's my first WPF app! Woohoo! Channel9, here I come!!
 
-Enjoy.
+###Enjoy.
 
 Honestly, I know there has to be something somewhere on Windows that'll do this. I can't believe I couldn't google it up in ten seconds or less, but could google up ten different ways to run Perl in a GUI on \*nix. It's *Perl*, for goodness sake. I've been hearing about people using this "language" for 20 years, and I'm still reasonably young. Does nobody do -- or even learn -- Perl on Windows?
 
 Anything doesn't work? *Open an issue!*
+
+###Release notes
+
+<pre>0.1.3 -- Added -W option to Execute menu (on by default) to add warnings to output window after standard return is inserted.
+         Added scrollbars to editor and results window.
+0.1.2 -- Added -l option to Execute menu (on by default) to add newlines to `print` statements.
+         Multiple files can be opened in tabs.
+         Icon added.
+         Tab characters entered in editor changed to [four] spaces.
+         Bug fixes. 
+0.1.1 -- Essentially works.
+1.0.0 -- Alpha version. Someone forgot to set the version in the assembly information.
+</pre>

@@ -68,10 +68,18 @@ namespace PerlRunner
                 {
                     _saveBuffer(_tabActive);
                     string argsForPerl = _activeFileLoc;
-                    if (this.mniOptionL.IsChecked)
+
+                    // Kludgey options from menus setup.
+                    if (this.mniOptionl.IsChecked)
                     {
                         argsForPerl = "-l " + argsForPerl;
                     }
+                    if (this.mniOptionW.IsChecked)
+                    {
+                        argsForPerl = "-W " + argsForPerl;
+                    }
+                    // eo kludgey options from menus setup.
+
                     this.txtOutput.Text = CmdHelper.Execute(_wherePerl, argsForPerl);
                 }
             }
@@ -128,6 +136,8 @@ namespace PerlRunner
                         txt.AcceptsTab = true;
                         txt.Background = Brushes.LightBlue;
                         txt.Text = File.ReadAllText(openFile);
+                        txt.HorizontalScrollBarVisibility = ScrollBarVisibility.Auto;
+                        txt.VerticalScrollBarVisibility = ScrollBarVisibility.Auto;
 
                         TabItem tab = new TabItem();
                         tab.Header = openFileName;
