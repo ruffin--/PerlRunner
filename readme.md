@@ -21,7 +21,7 @@ So I wanted to F5 my way through learning Perl, and took an afternoon to learn a
 Check. That's really all PerlRunner does.
 
 1. Open a .pl file.
-2. Hit F5.
+2. Hit F5 to save changes and run.
 3. See the results.
 4. Profit.
 
@@ -32,12 +32,13 @@ You're welcome. ;^)
 * It automatically finds which Perl install you have in your path and uses that. `where perl` indeed.
 * You can open *many* file*s*, and *save your changes*. Wow. I *know*.
 * You can run `perl` with the `-l` option on to make `print`s look better. (on by default)
+* You can run `perl` with the `-W` (all warnings) option on to see, um, all warnings. (on by default)
 * Tabs close! Hit `ctrl-w` and be boggled.
 * Did I mention you can hit F5 and have it execute?
 
 Yeah, that's about it for features right now.
 
-**Note:** You can set the `-l` option with the `Execute >>> Use -l option` menu. It is *on* by default, and resets to on each time PerlRunner is opened. 
+**Note:** You can set the `-l` &amp; `-W` options with the `Execute >>> Use -[l or W] option` menus. Both are *on* by default, and reset to on each time PerlRunner is opened. 
 
 ###It's not an IDE. kk?
 
@@ -72,6 +73,8 @@ Anything doesn't work? *Open an issue!*
 
 <pre>0.1.3 -- Added -W option to Execute menu (on by default) to add warnings to output window after standard return is inserted.
          Added scrollbars to editor and results window.
+         Removed cmd.exe window display on `perl` execution
+             (thought it might be useful in error cases, but it's just distracting).
 0.1.2 -- Added -l option to Execute menu (on by default) to add newlines to `print` statements.
          Multiple files can be opened in tabs.
          Icon added.

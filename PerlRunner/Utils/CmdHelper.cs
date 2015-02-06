@@ -17,6 +17,7 @@ namespace PerlRunner.Utils
             p.StartInfo.RedirectStandardOutput = true;
             p.StartInfo.RedirectStandardError = true;
             p.StartInfo.UseShellExecute = false;
+            p.StartInfo.CreateNoWindow = true;
 
             p.Start();
             // instead of p.WaitForExit(), do

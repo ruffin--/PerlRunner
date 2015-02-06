@@ -224,8 +224,6 @@ namespace PerlRunner
 
             this.txtOutput.Text += "\nApp icon is part of the Creative Commons and requires attribution for the author: Nicolas Mollet.\n"
                 + "Thanks Nicolas.\n";
-
-            this.txtOutput.Text += "\nNew in 0.1.2: Can choose to use -l option, which is on by default, with the `perl` call to make `print` more readable.\n";
         }
 
         private string _fileForTab(TabItem tab)
