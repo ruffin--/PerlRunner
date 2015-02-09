@@ -1,4 +1,4 @@
-##PERLRUNNER!!!1!! Use at YOUR OWN RISK.
+Auto##PERLRUNNER!!!1!! Use at YOUR OWN RISK.
 
 ![Screenshot of PERLRUNNER!!!1!!](https://raw.githubusercontent.com/ruffin--/PerlRunner/master/screenshots/runner1.png)
 
@@ -75,11 +75,17 @@ Anything doesn't work? *Open an issue!*
          Added scrollbars to editor and results window.
          Removed cmd.exe window display on `perl` execution
              (thought it might be useful in error cases, but it's just distracting).
+         Autoindent
+         Backspace deletes a tabstop of spaces (weird edge cases remain)
+         Very poor block indent implementation.
+
 0.1.2 -- Added -l option to Execute menu (on by default) to add newlines to `print` statements.
          Multiple files can be opened in tabs.
          Icon added.
          Tab characters entered in editor changed to [four] spaces.
          Bug fixes. 
+
 0.1.1 -- Essentially works.
+
 1.0.0 -- Alpha version. Someone forgot to set the version in the assembly information.
 </pre>
