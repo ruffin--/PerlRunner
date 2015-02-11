@@ -51,8 +51,11 @@ namespace PerlRunner.Utils
                 if (base.Text.Length > 0)
                 {
                     int intPrevNewLine = base.Text.Substring(0, intCaretLoc).LastIndexOf(System.Environment.NewLine);
-                    string strLastLine = intPrevNewLine >= 0 ? base.Text.Substring(intPrevNewLine + System.Environment.NewLine.Length, intCaretLoc - intPrevNewLine) :
-                        base.Text.Substring(0, intCaretLoc);
+                    int intPrevNewLineStart = intPrevNewLine + System.Environment.NewLine.Length;
+
+                    string strLastLine = intPrevNewLine >= 0
+                        ? base.Text.Substring(intPrevNewLineStart, intCaretLoc - intPrevNewLineStart)
+                        : base.Text.Substring(0, intCaretLoc);
 
                     int i = 0;
                     while (i < strLastLine.Length)
@@ -67,7 +70,6 @@ namespace PerlRunner.Utils
                         }
                         i++;    // we coulda put in the if line, but that's just a little hipster-ist.
                     }
-
                 }
                 base.Text = base.Text.Insert(intCaretLoc, System.Environment.NewLine + strAutoIndent);
                 base.CaretIndex = intCaretLoc + (System.Environment.NewLine + strAutoIndent).Length;
