@@ -18,6 +18,12 @@
         />
 
         <CommandBinding
+            Command="SaveAs"
+            Executed="CommandBinding_SaveAs_Executed"
+            CanExecute="CommandBinding_SaveAs_CanExecute"
+        />
+
+        <CommandBinding
             Command="{x:Static local:ExecutionCommands.CloseTab}"
             Executed="CommandBinding_CloseTab_Executed"
             CanExecute="CommandBinding_CloseTab_CanExecute"
@@ -47,8 +53,9 @@
         <DockPanel Grid.Row="0">
             <Menu>
                 <MenuItem Header="_File">
-                        <MenuItem Command="Save"></MenuItem>
-                        <MenuItem Command="Open"></MenuItem>
+                        <MenuItem Header="_Save" Command="Save"></MenuItem>
+                        <MenuItem Header="Save_As" Command="SaveAs"></MenuItem>
+                        <MenuItem Header="_Open" Command="Open"></MenuItem>
                         <MenuItem 
                             Command="{x:Static local:ExecutionCommands.CloseTab}"
                             InputGestureText="Ctrl+W"

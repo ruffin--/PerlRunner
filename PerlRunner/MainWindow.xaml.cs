@@ -113,7 +113,7 @@ namespace PerlRunner
                 {
                     // Open document
                     // NOTE: Never mix data with view like this, okay? LOOK AWAY!!! I'M HIDEOUS!!!
-                    string openFile = dlg.FileName;
+                    string openFilePath = dlg.FileName;
                     string openFileName = dlg.FileName.Substring(dlg.FileName.LastIndexOf(@"\") + 1);
 
                     if (dFileLocs.ContainsKey(openFileName))
@@ -128,14 +128,14 @@ namespace PerlRunner
                     }
                     else
                     {
-                        this.dFileLocs.Add(openFileName, openFile);
+                        this.dFileLocs.Add(openFileName, openFilePath);
 
                         TextBoxTabsToSpaces txt = new TextBoxTabsToSpaces();
                         txt.FontFamily = new FontFamily("Courier New");
                         txt.AcceptsReturn = true;
                         txt.AcceptsTab = true;
                         txt.Background = Brushes.LightBlue;
-                        txt.Text = File.ReadAllText(openFile);
+                        txt.Text = File.ReadAllText(openFilePath);
                         txt.HorizontalScrollBarVisibility = ScrollBarVisibility.Auto;
                         txt.VerticalScrollBarVisibility = ScrollBarVisibility.Auto;
 
@@ -149,6 +149,8 @@ namespace PerlRunner
                         tab.Focus();
                         UpdateLayout();
                         txt.Focus();
+
+                        this.txtOutput.Text = openFileName + " opened successfully.";
                     }
                 }
             }
@@ -161,12 +163,66 @@ namespace PerlRunner
 
         private void CommandBinding_Save_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
-            e.CanExecute = !string.IsNullOrWhiteSpace(_txtActive.Text);
+            e.CanExecute = !string.IsNullOrWhiteSpace(_txtActive.Text) && !_tabActive.Header.Equals("Open a File");
         }
 
         private void CommandBinding_Save_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            _saveBuffer(_tabActive);
+            if (!_tabActive.Header.Equals("Open a File"))
+                _saveBuffer(_tabActive);
+        }
+
+        private void CommandBinding_SaveAs_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = !_tabActive.Header.Equals("Open a File");
+        }
+
+        private void CommandBinding_SaveAs_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            if (!_tabActive.Header.Equals("Open a File"))
+                _saveAsOrSaveNew(true);
+        }
+
+        private void _saveAsOrSaveNew(bool saveAs = false)
+        {
+            Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
+            dlg.FileName = string.Empty;
+            dlg.DefaultExt = ".pl"; // Default file extension
+            dlg.Filter = "Perl scripts (.pl)|*.pl|All Files|*.*"; // Filter files by extension 
+
+            Nullable<bool> result = dlg.ShowDialog();
+
+            // Process open file dialog box results 
+            if (result.HasValue && result.Value)
+            {
+                // Open document
+                // NOTE: Never mix data with view like this, okay? LOOK AWAY!!! I'M HIDEOUS!!!
+                string saveFilePath = dlg.FileName;
+                string saveFileName = saveFilePath.Substring(saveFilePath.LastIndexOf(@"\") + 1);
+
+                if (dFileLocs.ContainsKey(saveFileName))
+                {
+                    this.txtOutput.Text = "A file named " + saveFileName + " is already open. Please \n"
+                        + "close the existing tab by this name to save this file with that name.\n"
+                        + "\n"
+                        + "With any luck, this won't be a limitation in the future.\n"
+                        + "\n"
+                        + "\t(This app is on github, and pull requests are welcome, you know. ;^D)";
+                    MessageBox.Show("Not gonna open that right now.\n\n(see bottom window)", "Not gonna do it.");
+                }
+                else
+                {
+                    if (saveAs)
+                    {
+                        dFileLocs.Remove(_tabActive.Header.ToString());
+                    }
+                    dFileLocs.Add(saveFileName, saveFilePath);
+                    _tabActive.Header = saveFileName;
+                    _saveBuffer(_tabActive);
+
+                    this.txtOutput.Text = saveFileName + " saved successfully.";
+                }
+            }
         }
 
         private void CommandBinding_Open_CanExecute(object sender, CanExecuteRoutedEventArgs e)
@@ -181,7 +237,7 @@ namespace PerlRunner
                 if (!_tabActive.Name.Equals("FauxTab"))
                 {
                     _saveBuffer(_tabActive);
-                    this.txtOutput.Text = "Saving before closing.";
+                    this.txtOutput.Text = "Saving before closing."; // TODO: Check for unsaved edits instead.
                     this.dFileLocs.Remove(_tabActive.Header.ToString());
                     this.TabOFiles.Items.Remove(_tabActive);
                 }
