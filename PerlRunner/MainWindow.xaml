@@ -6,6 +6,12 @@
     
     <Window.CommandBindings>
         <CommandBinding
+            Command="New"
+            Executed="CommandBinding_New_Executed"
+            CanExecute="CommandBinding_New_CanExecute"
+        />
+        
+        <CommandBinding
             Command="Open"
             Executed="CommandBinding_Open_Executed"
             CanExecute="CommandBinding_Open_CanExecute"
@@ -53,8 +59,11 @@
         <DockPanel Grid.Row="0">
             <Menu>
                 <MenuItem Header="_File">
-                        <MenuItem Header="_Save" Command="Save"></MenuItem>
-                        <MenuItem Header="Save_As" Command="SaveAs"></MenuItem>
+                    <MenuItem Header="_New" 
+                        InputGestureText="Ctrl+N"
+                        Command="New"></MenuItem>
+                    <MenuItem Header="_Save" Command="Save"></MenuItem>
+                    <MenuItem Header="Save_As" Command="SaveAs"></MenuItem>
                         <MenuItem Header="_Open" Command="Open"></MenuItem>
                         <MenuItem 
                             Command="{x:Static local:ExecutionCommands.CloseTab}"
@@ -84,7 +93,7 @@
             Grid.Row="1"
             Name="TabOFiles"
         >
-            <TabItem Name="FauxTab" Header="Open a File">
+            <!-- TabItem Name="FauxTab" Header="Open a File">
                 <TextBox 
                     Name="txtCode" 
                     FontFamily="Courier New"
@@ -94,7 +103,7 @@
                     IsEnabled="False"
                 >
                 </TextBox>
-            </TabItem>
+            </TabItem -->
         </TabControl>
 
         <GridSplitter Grid.Row="2"
