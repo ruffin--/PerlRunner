@@ -20,7 +20,7 @@ So I wanted to F5 my way through learning Perl, and took an afternoon to learn a
 
 Check. That's really all PerlRunner does.
 
-1. Open a .pl file.
+1. Open or create a .pl file.
 2. Hit F5 to save changes and run.
 3. See the results.
 4. Profit.
@@ -47,7 +47,7 @@ Right now all it does is open files (that don't share the same file name), no sy
 Stuff I'll probably add if I stay stuck in Perlland.
 
 1. Stuff any self-respecting app *should* do.
-    * Create and save a new file (right now you *have* to edit an existing file).
+    * Create multiple new files without saving (and execute their contents).
     * Remember...
 	    * ... last window size.
     	* ... splitter bar position.
@@ -78,6 +78,7 @@ Anything doesn't work? *Open an issue!*
          Autoindent
          Backspace deletes a tabstop of spaces (weird edge cases remain)
          Very poor block indent implementation.
+         Open a single New file tab.
 
 0.1.2 -- Added -l option to Execute menu (on by default) to add newlines to `print` statements.
          Multiple files can be opened in tabs.
