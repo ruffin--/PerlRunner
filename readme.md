@@ -1,8 +1,16 @@
 ### PERLRUNNER!!!1!! Use at YOUR OWN RISK.
 
-![Screenshot of PERLRUNNER!!!1!!](https://raw.githubusercontent.com/ruffin--/PerlRunner/master/screenshots/runner1.png)
-
 <img alt="PerlRunner Icon" src="https://raw.githubusercontent.com/ruffin--/PerlRunner/master/PerlRunner/camel.ico" style="float:left;margin:5px"> (Imagine some neat audio effects going off while you're reading the name, above. And yes, I know there's a "Perl Runner" for Mac that'll set you back **$1.99**. But, one, the name's not copyrighted. Two, there's no space in PERLRUNNER!!!1!.)
+
+###Download
+
+The exe is here: [PerlRunner.exe](https://github.com/ruffin--/PerlRunner/raw/master/PerlRunner/bin/Debug/PerlRunner.exe)
+
+<span style="background-color:yellow">**USE AT YOUR OWN RISK!**</span>
+
+That should work on most recent Windows boxes. Raise an issue if you have any trouble.
+
+![Screenshot of PERLRUNNER!!!1!!](https://raw.githubusercontent.com/ruffin--/PerlRunner/master/screenshots/runner1.png)
 
 ###License
 
