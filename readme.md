@@ -2,7 +2,7 @@
 
 <img alt="PerlRunner Icon" src="https://raw.githubusercontent.com/ruffin--/PerlRunner/master/PerlRunner/camel.ico" style="float:left;margin:5px"> (Imagine some neat audio effects going off while you're reading the name, above. And yes, I know there's a "Perl Runner" for Mac that'll set you back **$1.99**. But, one, the name's not copyrighted. Two, there's no space in PERLRUNNER!!!1!.)
 
-###Download
+### Download
 
 The exe is here: [PerlRunner.exe](https://github.com/ruffin--/PerlRunner/raw/master/PerlRunner/bin/Debug/PerlRunner.exe)
 
@@ -12,11 +12,11 @@ That should work on most recent Windows boxes. Raise an issue if you have any tr
 
 ![Screenshot of PERLRUNNER!!!1!!](https://raw.githubusercontent.com/ruffin--/PerlRunner/master/screenshots/runner1.png)
 
-###License
+### License
 
 PerlRunner is [MPL 2.0 licensed](https://www.mozilla.org/MPL/2.0/). See included LICENSE file for the license in its entirety.
 
-###Why?
+### Why?
 
 Feeling a little like a Connecticut Yankee in King Arthur's Court, I unfortunately stumbled into a project at work that required Perl maintenance in 2015. And I noticed that, except for Padre, there wasn't an obvious, free Perl IDE, and [Padre doesn't seem to like Strawberry right now](http://myfreakinname.blogspot.com/2015/01/continued-misadventures-in-perl.html#padrefail).
 
@@ -24,7 +24,7 @@ And editing in one window, alt-tabbing, cursor up-ing, return-ing, and alt-tabbi
 
 So I wanted to F5 my way through learning Perl, and took an afternoon to learn and hack a little WPF and XAML. Keep your [Tk craziness](http://ptkdb.sourceforge.net/demo.html) away from me.
 
-###Just let me F5.
+### Just let me F5.
 
 Check. That's really all PerlRunner does.
 
@@ -35,7 +35,7 @@ Check. That's really all PerlRunner does.
 
 You're welcome. ;^)
 
-###Features
+### Features
 
 * It automatically finds which Perl install you have in your path and uses that. `where perl` indeed.
 * You can open *many* file*s*, and *save your changes*. Wow. I *know*.
@@ -48,7 +48,7 @@ Yeah, that's about it for features right now.
 
 **Note:** You can set the `-l` &amp; `-W` options with the `Execute >>> Use -[l or W] option` menus. Both are *on* by default, and reset to on each time PerlRunner is opened. 
 
-###It's not an IDE. kk?
+### It's not an IDE. kk?
 
 Right now all it does is open files (that don't share the same file name), no syntax highlighting, and no options.
 
@@ -71,13 +71,13 @@ Adding debugging [really] isn't [as] insane [as it sounds]. Perl has its own deb
 
 None of those things are likely. If you're lucky, I'll remove the colors on the text boxes I was using to test my XAML. It's my first WPF app! Woohoo! Channel9, here I come!!
 
-###Enjoy.
+### Enjoy.
 
 Honestly, I know there has to be something somewhere on Windows that'll do this. I can't believe I couldn't google it up in ten seconds or less, but could google up ten different ways to run Perl in a GUI on \*nix. It's *Perl*, for goodness sake. I've been hearing about people using this "language" for 20 years, and I'm still reasonably young. Does nobody do -- or even learn -- Perl on Windows?
 
 Anything doesn't work? *Open an issue!*
 
-###Release notes
+### Release notes
 
 <pre>0.1.3 -- Added -W option to Execute menu (on by default) to add warnings to output window after standard return is inserted.
          Added scrollbars to editor and results window.
